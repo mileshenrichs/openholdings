@@ -10,15 +10,6 @@ from ..utils.file_util import download_holdings_file, delete_holdings_file
 class IShares(IFetcher):
     """A fetcher implementation for Blackrock iShares funds."""
 
-    def __init__(self):
-        # chrome_options = Options()
-        # chrome_options.add_argument('--disable-extensions')
-        # # chrome_options.add_argument('--disable-gpu')
-        # # chrome_options.add_argument('--headless')
-        # chrome_options.add_experimental_option('excludeSwitches', ['enable-logging'])
-        # self.driver = webdriver.Chrome(executable_path=os.environ['CHROME_DRIVER_PATH'], options=chrome_options)
-        pass
-
     def fetch(self, ticker):
         holdings = []
 

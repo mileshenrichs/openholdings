@@ -9,7 +9,7 @@ def download_holdings_file(holdings_file_url, file_extension, ticker):
     :param ticker: The fund ticker symbol to ensure a unique file name when saved.
     :returns: The filename of the downloaded holdings file.
     """
-    r = requests.get(holdings_file_url, allow_redirects=True)
+    r = requests.get(holdings_file_url, headers={'User-Agent': 'Mozilla/5.0'}, allow_redirects=True)
     filename = 'holdings-{}.{}'.format(ticker, file_extension)
     open(filename, 'wb').write(r.content)
     return filename

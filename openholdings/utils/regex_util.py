@@ -14,4 +14,4 @@ def is_ticker_symbol(value):
     :param value: A string to evaluate.
     :returns: True if string is in the form of a valid stock ticker symbol.
     """
-    return re.match(r'[A-Z]{1,6}', value)
+    return re.match(r'^[A-Z0-9]{1,6}$', value)
