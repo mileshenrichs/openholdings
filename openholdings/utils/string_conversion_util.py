@@ -4,7 +4,7 @@ def convert_percentage_string_to_float(percentage_string):
     :param percentage_string: A string in percentage form to be converted.
     :returns: A floating-point number rounded to 4 decimal places (2 decimals in percentage form).
     """
-    return round(float(percentage_string[:-1]) / 100, 4)
+    return round(float(percentage_string.replace('%', '')) / 100, 4)
 
 def convert_comma_separated_integer_to_int(comma_separated_number_string):
     """Converts a string of the form 'x,xxx,xxx' to its equivalent integer value.
