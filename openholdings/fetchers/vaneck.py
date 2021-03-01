@@ -21,7 +21,7 @@ class VanEck(IFetcher):
         downloaded_filename = download_holdings_file(spreadsheet_url, 'xlsx', ticker)
 
         # Parse holdings list from downloaded spreadsheet
-        wb = load_workbook(filename=downloaded_filename, read_only=True)
+        wb = load_workbook(filename=downloaded_filename)
         sheet = wb.active
         holdings = self.parse_holdings_from_spreadsheet(sheet)
 

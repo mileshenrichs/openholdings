@@ -1,6 +1,4 @@
-import os
 import csv
-from os.path import abspath
 from .fetcher import IFetcher
 from ..holding import Holding
 from ..exceptions import FundNotFoundException
