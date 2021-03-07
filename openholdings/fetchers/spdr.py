@@ -1,6 +1,6 @@
 from openpyxl import load_workbook
 from .fetcher import IFetcher
-from ..holding import Holding
+from ..models import Holding
 from ..utils.regex_util import is_ticker_symbol
 from ..utils.file_util import download_holdings_file, delete_holdings_file
 from ..utils.string_conversion_util import convert_percentage_string_to_float

@@ -7,11 +7,11 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 from .fetcher import IFetcher
-from ..holding import Holding
+from ..models import Holding
 from ..utils.regex_util import is_ticker_symbol
 from ..utils.string_conversion_util import (
     convert_percentage_string_to_float, 
-    convert_comma_separated_integer_to_int,
+    convert_comma_separated_integer_to_float,
     convert_dollars_string_to_float
 )
 
@@ -78,7 +78,7 @@ class Vanguard(IFetcher):
                 if is_ticker_symbol(holding_ticker):
                     holding.ticker = holding_ticker
                 holding.percent_weighting = convert_percentage_string_to_float(table_row[3])
-                holding.num_shares = convert_comma_separated_integer_to_int(table_row[4])
+                holding.num_shares = convert_comma_separated_integer_to_float(table_row[4])
                 holding.market_value_usd = convert_dollars_string_to_float(table_row[5])
                 holding.asset_class = 'Stock'
                 stock_holdings.append(holding)

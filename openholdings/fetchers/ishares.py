@@ -3,7 +3,7 @@ import csv
 import json
 from os.path import abspath
 from .fetcher import IFetcher
-from ..holding import Holding
+from ..models import Holding
 from ..exceptions import FundNotFoundException
 from ..utils.file_util import download_holdings_file, delete_holdings_file
 

@@ -14,12 +14,12 @@ used by the iShares fetcher.
 
 import os
 import time
-import csv
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from utils.csv_writing import write_funds_to_csv
 
 def main():
     chrome_options = Options()
@@ -51,13 +51,7 @@ def main():
         driver.quit()
 
     print('Writing fund ticker symbols and URLs to csv file...')
-    csv_file_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'ishares_funds.csv')
-    with open(csv_file_path, mode='w') as funds_file:
-        funds_file.truncate()
-        writer = csv.writer(funds_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_NONNUMERIC, lineterminator='\n')
-        writer.writerow(['Ticker', 'URL'])
-        for fund in funds:
-            writer.writerow(fund)
+    write_funds_to_csv(funds, 'ishares_funds.csv')
     print('Done!')
 
 if __name__ == '__main__':

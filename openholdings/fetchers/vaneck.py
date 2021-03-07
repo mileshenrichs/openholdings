@@ -3,12 +3,12 @@ import requests
 import shutil
 import os
 from .fetcher import IFetcher
-from ..holding import Holding
+from ..models import Holding
 from ..utils.regex_util import is_percentage, is_ticker_symbol
 from ..utils.file_util import download_holdings_file, delete_holdings_file
 from ..utils.string_conversion_util import (
     convert_percentage_string_to_float, 
-    convert_comma_separated_integer_to_int, 
+    convert_comma_separated_integer_to_float, 
     convert_dollars_string_to_float
 )
 
@@ -31,6 +31,8 @@ class VanEck(IFetcher):
         return holdings
 
     def get_url_for_ticker(self, ticker):
+        # TODO: fix the fact that the 'equity' part is sometimes 'income' or 'commodity'
+        # Maybe just brute force try each one
         return 'https://www.vaneck.com/etf/equity/{}/holdings/download/xlsx/'.format(ticker.lower())
 
     def parse_holdings_from_spreadsheet(self, sheet):
@@ -49,7 +51,7 @@ class VanEck(IFetcher):
                     holding.ticker = ticker
                 holding.name = row[2].value
                 if row[4].value is not None:
-                    holding.num_shares = convert_comma_separated_integer_to_int(row[4].value)
+                    holding.num_shares = convert_comma_separated_integer_to_float(row[4].value)
                 holding.asset_class = row[5].value
                 holding.market_value_usd = convert_dollars_string_to_float(row[6].value)
                 holding.percent_weighting = convert_percentage_string_to_float(row[7].value)
