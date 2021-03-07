@@ -120,7 +120,8 @@ class Etfmg(IFetcher):
         """ETFMG's bond ETFs list bond information (name, coupon rate, and maturity date) as
         a single field, i.e: 'HONEYWELL INTL INC 0.41138% 08/19/2022'.
 
-        This and the following two methods parse out the respective bond fields."""
+        This and the following two methods parse out the respective bond fields.
+        """
         desc_parts = description.split(' ')
         end_idx = 0
         while end_idx < len(desc_parts) and not is_percentage(desc_parts[end_idx]):
