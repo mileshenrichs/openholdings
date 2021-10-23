@@ -1,3 +1,4 @@
+from datetime import date
 from .holding import Holding
 
 class Future(Holding):
@@ -16,5 +17,8 @@ class Future(Holding):
         """The number of futures contracts of this type that are held."""
 
     def __repr__(self):
+        expiry_date_str = None
+        if isinstance(self.contract_expiry_date, date):
+            expiry_date_str = self.contract_expiry_date.strftime('%m/%d/%Y')
         return '<Future{{name={}, percent_weighting={}, market_value={}, contract_code={}, expiry_date={}}}>'.format(self.name, 
-            self.percent_weighting, self.market_value_usd, self.contract_code, self.contract_expiry_date)
+            self.percent_weighting, self.market_value, self.contract_code, expiry_date_str)

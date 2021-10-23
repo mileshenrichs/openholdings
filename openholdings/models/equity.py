@@ -16,5 +16,5 @@ class Equity(Holding):
         """The sector to which the equity belongs."""
 
     def __repr__(self):
-        return '<Equity{{name={}, cusip={}, ticker={}, percent_weighting={}, market_value={}, num_shares={}, sector={}}}>'.format(self.name, 
-            self.identifier_cusip, self.ticker, self.percent_weighting, self.market_value, self.num_shares, self.sector)
+        return '<Equity{{name={}, cusip={}, isin={}, sedol={}, ticker={}, percent_weighting={}, market_value={}, num_shares={}, sector={}}}>'.format(self.name, 
+            self.identifier_cusip, self.identifier_isin, self.identifier_sedol, self.ticker, self.percent_weighting, self.market_value, self.num_shares, self.sector)

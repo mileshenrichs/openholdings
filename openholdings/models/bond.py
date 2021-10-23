@@ -25,6 +25,9 @@ class Bond(Holding):
         self.quantity_held = None
         """The quantity of this bond held by the fund."""
 
+        self.sector = None
+        """The sector to which the bond belongs."""
+
     def __repr__(self):
         effective_date_str, maturity_date_str = None, None
         if isinstance(self.effective_date, date):
@@ -32,5 +35,5 @@ class Bond(Holding):
         if isinstance(self.maturity_date, date):
             maturity_date_str = self.maturity_date.strftime('%m/%d/%Y')
         return (('<Bond{{name={}, percent_weighting={}, market_value={}, coupon_rate={}, effective_date={}, ' + 
-            'maturity_date={}}}>').format(self.name, self.percent_weighting, self.market_value, self.coupon_rate, 
-            effective_date_str, maturity_date_str))
+            'maturity_date={}, sector={}}}>').format(self.name, self.percent_weighting, self.market_value, self.coupon_rate, 
+            effective_date_str, maturity_date_str, self.sector))

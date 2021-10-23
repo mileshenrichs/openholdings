@@ -17,13 +17,14 @@ class HoldingFieldBag:
         # Equity-specific fields
         self.ticker = None
         self.num_shares = None
-        self.sector = None
         # Bond-specific fields
         self.coupon_rate = None
         self.rating = None
         self.effective_date = None
         self.maturity_date = None
         self.next_call_date = None
+        # Bond and Equity shared fields
+        self.sector = None
         # Future-specific fields
         self.contract_code = None
         self.contract_expiry_date = None

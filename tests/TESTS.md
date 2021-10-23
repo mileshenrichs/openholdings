@@ -2,6 +2,14 @@
 
 Programmatic tests have not been written yet.  For each ETF provider, a selection of funds have been chosen to manually test.  It it useful to test multiple funds from the same provider because different data formats are provided for different fund types (i.e. equities, bonds, currency, commodity funds).
 
+## iShares
+Ticker | Description
+------ | -----------
+[IWS](https://www.ishares.com/us/products/239719/ishares-russell-midcap-value-etf) | Equities, mid-cap value
+[MUB](https://www.ishares.com/us/products/239766/ishares-national-amtfree-muni-bond-etf) | Bonds
+[GSG](https://www.ishares.com/us/products/239757/ishares-sp-gsci-commodityindexed-trust-fund) | Commodity futures, cash
+[HEFA](https://www.ishares.com/us/products/259622/ishares-currency-hedged-msci-eafe-etf) | Currencies presented as equities
+
 ## Invesco
 Ticker | Description
 ------ | -----------

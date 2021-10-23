@@ -10,4 +10,4 @@ class HoldingsFetcher:
         self.etf_ticker = etf_ticker
 
     def fetch(self):
-        return Etfmg().fetch(self.etf_ticker)
+        return IShares().fetch(self.etf_ticker)
